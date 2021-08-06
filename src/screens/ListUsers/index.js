@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
-import { View, Text, StyleSheet, FlatList } from 'react-native'
-import { List } from "react-native-paper";
+import { View, FlatList } from 'react-native'
+import { List, Text } from "react-native-paper";
 
 import { userContext } from "./../../context/context";
 import CardUser from "./../../components/CardUser";
@@ -16,7 +16,7 @@ function ListUsers(props) {
     }, [])
 
     const renderUser = ({ item }) => {
-        return (<CardUser id={item.id} name={item.name} email={item.email} navigation={navigation} />)
+        return (<CardUser user={item} navigation={navigation} />)
     }
 
     return (
@@ -30,7 +30,7 @@ function ListUsers(props) {
                         renderItem={renderUser}
                         keyExtractor={item => item.id}
                     />
-                    : <Text style={{ color: "red" }}>No hay usuarios registrado</Text>
+                    : <Text style={{ color: "red", textAlign: 'center' }}>No hay clientes registrado</Text>
                 }
             </List.Section>
         </View>
