@@ -19,20 +19,13 @@ export default function CardUser({ user, navigation }) {
             title={user.name}
             description={user.email}
             style={{ backgroundColor: 'white' }}
-            left={props => < List.Icon {...props} icon="account" />}
+            left={props => < List.Icon {...props} color='rgba(000,000,000,.5)' icon="account" />}
             right={props => <List.Icon {...props} icon={expanded ? "chevron-up" : "chevron-down"} />}
             expanded={expanded}
+            titleStyle={{ fontWeight: expanded ? 'bold' : 'normal', color: expanded ? '#2E3E5C' : 'black' }}
             onPress={() => setExpanded(!expanded)}
         >
             <List.Item title={user.name} description={() => detailUser()} />
         </List.Accordion >
     )
 }
-
-/*<List.Item
-            title={name}
-            description={email}
-            left={props => <List.Icon {...props} icon="account-box" />}
-            right={props => <List.Icon {...props} icon="chevron-right" />}
-            onPress={() => navigation.navigate("detail", { id })}
-/> */
